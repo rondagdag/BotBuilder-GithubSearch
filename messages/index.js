@@ -19,6 +19,8 @@ var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure
     openIdMetadata: process.env['BotOpenIdMetadata']
 });
 var bot = new builder.UniversalBot(connector);
+bot.localePath(path.join(__dirname, './locale'));
+
 var dialog = new builder.IntentDialog();
 dialog.matches(/^search/i, [
     function(session, args, next) {
