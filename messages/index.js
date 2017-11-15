@@ -18,7 +18,7 @@ var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure
     stateEndpoint: process.env['BotStateEndpoint'],
     openIdMetadata: process.env['BotOpenIdMetadata']
 });
-
+var bot = new builder.UniversalBot(connector);
 var dialog = new builder.IntentDialog();
 dialog.matches(/^search/i, [
     function(session, args, next) {
